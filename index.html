@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='utf-8' />
-<title>在不同地图之间滑动</title>
+<title>Health Facilities in Kenya</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet' />
@@ -38,40 +38,6 @@ width: 100%;
         bottom: 0;
         width: 100%;
     }
-
-    
-    .map-overlay {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.8);
-  margin-right: 20px;
-  font-family: Arial, sans-serif;
-  overflow: auto;
-  border-radius: 3px;
-}
-  #features {
-  top: 200px;
-  height: 100px;
-  margin-top: 20px;
-  width: 250px;
-}
-#legend {
-  padding: 10px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  line-height: 18px;
-  height: 150px;
-  margin-bottom: 40px;
-  width: 100px;
-}
-
-.legend-key {
-  display: inline-block;
-  border-radius: 20%;
-  width: 10px;
-  height: 10px;
-  margin-right: 5px;
-}
 </style>
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css' type='text/css' />
@@ -82,40 +48,17 @@ width: 100%;
 mapboxgl.accessToken = 'pk.eyJ1IjoicWl6aGFuZzk3MDMzMSIsImEiOiJjazhleW54MWcwMWZhM2Zyd3M2dDZmdG1zIn0.V0szOrPy8dZ3OiNRXgbwuQ';
 var beforeMap = new mapboxgl.Map({
 container: 'before',
-style: 'mapbox://styles/qizhang970331/ck9hnw8u910jr1jphef8r8wuz',
+style: ' mapbox://styles/qizhang970331/ck9abqykv0vhn1ipfbe5seqp1',
 center: [0, 0],
 zoom: 0
 });
-
-   map.on('load', function() {
-       // make a pointer cursor
-        map.getCanvas().style.cursor = 'default';
-      var layers = ['hospital', 'pharmacy', 'clinic', 'dentist', 'doctors'];
-      var colors = ['#21a9ed', '#9b19e6', '#f7d022', '#ef3434', '#21783a'];
-    // Add a legend
-    for (i = 0; i < layers.length; i++) {
-  var layer = layers[i];
-  var color = colors[i];
-  var item = document.createElement('div');
-  var key = document.createElement('span');
-  key.className = 'legend-key';
-  key.style.backgroundColor = color;
-
-  var value = document.createElement('span');
-  value.innerHTML = layer;
-  item.appendChild(key);
-  item.appendChild(value);
-  legend.appendChild(item);
-}
-  });
- 
 var afterMap = new mapboxgl.Map({
 container: 'after',
 style: 'mapbox://styles/qizhang970331/ck9a6zii41cb31is17z7j3o84',
 center: [0, 0],
 zoom: 0
 });
- 
+
 var map = new mapboxgl.Compare(beforeMap, afterMap, {
 // Set this to enable comparing two maps by mouse movement:
 // mousemove: true
